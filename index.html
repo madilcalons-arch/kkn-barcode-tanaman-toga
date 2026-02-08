@@ -1,0 +1,874 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Kebun TOGA KKN — UNCP Palopo</title>
+  <meta name="description" content="Website Kebun TOGA KKN UNCP Palopo: kunyit, jahe, kencur, lengkuas, kumis kucing, sereh, kemangi, temulawak. Lengkap: penjelasan, budidaya, perawatan, manfaat, nama latin, vitamin." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --text:#eef3ff;
+      --muted:#a9b7d0;
+      --line:rgba(255,255,255,.12);
+      --yellow:#f6c600;     /* tema UNCP: kuning */
+      --yellow2:#ffdf6b;
+      --shadow: 0 18px 45px rgba(0,0,0,.35);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", sans-serif;
+      color:var(--text);
+      line-height:1.6;
+      background:
+        radial-gradient(900px 520px at 10% 0%, rgba(246,198,0,.18), transparent 60%),
+        radial-gradient(900px 520px at 90% 10%, rgba(255,223,107,.14), transparent 60%),
+        linear-gradient(180deg, #071022 0%, #0b1220 55%, #070d18 100%);
+    }
+    a{color:inherit}
+    .wrap{max-width:1180px;margin:0 auto;padding:22px}
+    header{
+      display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+      padding:10px 0 12px;
+    }
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{
+      width:58px;height:58px;border-radius:16px;overflow:hidden;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+      display:grid;place-items:center;
+    }
+    .logo img{width:100%;height:100%;object-fit:contain;background:#fff}
+    .title h1{margin:0;font-size:18px;letter-spacing:.2px}
+    .title p{margin:2px 0 0;color:var(--muted);font-size:13px}
+
+    nav{display:flex;gap:10px;flex-wrap:wrap}
+    .chip{
+      padding:8px 12px;border-radius:999px;text-decoration:none;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      font-size:13px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .chip:hover{transform:translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.20)}
+
+    .hero{
+      margin:12px 0 16px;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: var(--shadow);
+      background: rgba(255,255,255,.06);
+    }
+    .heroTop{
+      padding:18px;
+      background:
+        linear-gradient(90deg, rgba(246,198,0,.20), rgba(255,255,255,.00)),
+        url("https://upload.wikimedia.org/wikipedia/commons/5/51/Vegetable_garden.jpg");
+      background-size:cover;
+      background-position:center;
+      border-bottom:1px solid var(--line);
+    }
+    .heroTop .tag{
+      display:inline-flex;align-items:center;gap:8px;
+      padding:6px 10px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.28);
+      font-size:12.5px;color:var(--yellow2);
+      backdrop-filter: blur(6px);
+    }
+    .heroTop h2{margin:10px 0 6px;font-size:26px}
+    .heroTop p{margin:0;color:rgba(255,255,255,.88);max-width:820px}
+    .heroBottom{
+      padding:14px 18px;
+      display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:space-between;
+      background: rgba(0,0,0,.12);
+    }
+    .search{
+      flex:1;min-width:240px;
+      display:flex;gap:10px;align-items:center;
+      padding:10px 12px;border-radius:14px;
+      border:1px solid var(--line);
+      background: rgba(0,0,0,.18);
+    }
+    .search input{
+      width:100%;border:0;outline:0;background:transparent;color:var(--text);font-size:14px;
+    }
+    .badge{
+      white-space:nowrap;
+      padding:9px 12px;border-radius:14px;
+      border:1px solid rgba(246,198,0,.35);
+      background: rgba(246,198,0,.12);
+      color: var(--yellow2);
+      font-size:13px;
+    }
+    .kknRow{
+      display:flex;gap:12px;align-items:center;flex-wrap:wrap;
+      padding:12px 18px 18px;
+    }
+    .kknPhoto{
+      width:180px;height:110px;border-radius:16px;overflow:hidden;
+      border:1px solid var(--line);
+      background: rgba(255,255,255,.06);
+      flex:0 0 auto;
+    }
+    .kknPhoto img{width:100%;height:100%;object-fit:cover}
+    .kknText{flex:1;min-width:240px}
+    .kknText h3{margin:0 0 6px;font-size:16px}
+    .kknText p{margin:0;color:var(--muted);font-size:13.5px}
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin:18px 0 26px;
+    }
+    .card{
+      grid-column: span 12;
+      border:1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,.05);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    @media (min-width: 860px){
+      .card{grid-column: span 6;}
+    }
+
+    .cardTop{
+      display:grid;
+      grid-template-columns: 124px 1fr;
+      gap:12px;
+      padding:14px;
+      background: linear-gradient(180deg, rgba(246,198,0,.14), rgba(0,0,0,.08));
+      border-bottom:1px solid var(--line);
+    }
+    .photo{
+      width:124px;height:96px;border-radius:16px;overflow:hidden;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.06);
+    }
+    .photo img{width:100%;height:100%;object-fit:cover}
+    .cardTop h4{margin:0 0 4px;font-size:18px}
+    .latin{margin:0;color:var(--muted);font-size:13px}
+    .pillRow{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .pill{
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(246,198,0,.28);
+      background: rgba(246,198,0,.10);
+      color: var(--yellow2);
+    }
+
+    .cardBody{padding:14px}
+    details{
+      border:1px solid var(--line);
+      border-radius:14px;
+      background: rgba(0,0,0,.12);
+      padding:10px 12px;
+      margin:10px 0;
+    }
+    summary{cursor:pointer;font-weight:700}
+    .muted{color:var(--muted)}
+    .twoCol{display:grid;grid-template-columns:1fr;gap:10px}
+    @media (min-width: 560px){
+      .twoCol{grid-template-columns:1fr 1fr}
+    }
+    ul{margin:8px 0 0 18px}
+    .src{
+      margin-top:10px;
+      padding-top:10px;
+      border-top:1px dashed rgba(255,255,255,.18);
+      color: var(--muted);
+      font-size:12.5px;
+    }
+    footer{
+      margin-top:18px;
+      padding:16px 0 30px;
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      font-size:12.5px;
+    }
+    .highlight{color:var(--yellow2);font-weight:800}
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="brand">
+        <div class="logo" title="Logo Universitas Cokroaminoto Palopo (UNCP)">
+          <!-- Link logo (dari Wikimedia). Jika kamu punya link resmi kampus (Drive/Website), ganti src di bawah. -->
+          <img alt="Logo UNCP" src="https://upload.wikimedia.org/wikipedia/commons/9/9f/Uncplogo.png">
+        </div>
+        <div class="title">
+          <h1>Website Kebun TOGA KKN — UNCP Palopo</h1>
+          <p>Belajar TOGA dari Kebun • Scan QR • Langsung Paham</p>
+        </div>
+      </div>
+
+      <nav>
+        <a class="chip" href="#kunyit">Kunyit</a>
+        <a class="chip" href="#jahe">Jahe</a>
+        <a class="chip" href="#kencur">Kencur</a>
+        <a class="chip" href="#lengkuas">Lengkuas</a>
+        <a class="chip" href="#kumis-kucing">Kumis Kucing</a>
+        <a class="chip" href="#sereh">Sereh</a>
+        <a class="chip" href="#kemangi">Kemangi</a>
+        <a class="chip" href="#temulawak">Temulawak</a>
+        <a class="chip" href="#pandan">Pandan</a>
+        <a class="chip" href="#andong-merah">Andong Merah</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="heroTop">
+        <span class="tag">🌿 KKN • Kebun TOGA • Universitas Cokroaminoto Palopo</span>
+        <h2>Informasi Tanaman Obat Keluarga yang ringkas & mudah dipahami</h2>
+        <p>
+          Halaman ini memuat <span class="highlight">penjelasan</span>, <span class="highlight">budidaya</span>,
+          <span class="highlight">perawatan</span>, <span class="highlight">manfaat</span>,
+          <span class="highlight">nama latin</span>, dan <span class="highlight">kandungan vitamin</span>
+          untuk tanaman TOGA yang sering ada di pekarangan.
+        </p>
+      </div>
+
+      <div class="heroBottom">
+        <div class="search" role="search">
+          <span aria-hidden="true">🔎</span>
+          <input id="q" type="search" placeholder="Cari kata kunci (contoh: panen, vitamin C, siram, rimpang)..." />
+        </div>
+        <div class="badge">✅ Kampus kuning</div>
+      </div>
+
+      <div class="kknRow">
+        <div class="kknPhoto" title="Gambaran mahasiswa KKN (foto ilustratif)">
+          <!-- Foto ilustratif mahasiswa kegiatan lapangan (Wikimedia). Jika kamu punya foto tim KKN sendiri, ganti URL ini. -->
+          <img alt="Mahasiswa kegiatan lapangan" src="kkn9.jpeg">
+        </div>
+        <div class="kknText">
+          <h3>Program Kebun TOGA oleh Mahasiswa KKN</h3>
+          <p>
+            Kebun TOGA membantu warga mengenali tanaman, cara menanam, dan cara merawatnya.
+            Kamu bisa menambahkan <strong>QR Code</strong> ke tiap tanaman agar warga bisa scan dan membaca halaman ini.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="grid" id="cards">
+
+      <!-- 1) KUNYIT -->
+      <article class="card plant" id="kunyit" data-keywords="kunyit curcuma longa rimpang budidaya perawatan manfaat vitamin c b6 kurkumin">
+        <div class="cardTop">
+          <div class="photo">
+            <img alt="Kunyit (foto asli)" src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Curcuma_longa_roots.jpg">
+          </div>
+          <div>
+            <h4>1) Kunyit</h4>
+            <p class="latin"><strong>Nama latin:</strong> <em>Curcuma longa</em> L.</p>
+            <div class="pillRow">
+              <span class="pill">Rimpang</span>
+              <span class="pill">Senyawa utama: kurkumin</span>
+              <span class="pill">Vitamin: C & B kompleks (umum)</span>
+            </div>
+          </div>
+        </div>
+        <div class="cardBody">
+          <details open>
+            <summary>Penjelasan</summary>
+            <p class="muted">Kunyit adalah tanaman rimpang berwarna kuning yang banyak dipakai sebagai bumbu dan bahan ramuan tradisional.</p>
+          </details>
+
+          <div class="twoCol">
+            <details open>
+              <summary>Budidaya</summary>
+              <ul class="muted">
+                <li>Perbanyakan: rimpang bertunas (bibit).</li>
+                <li>Media: tanah gembur, kaya kompos, tidak tergenang.</li>
+                <li>Panen: saat daun mulai menguning/mengering (umumnya beberapa bulan).</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Perawatan</summary>
+              <ul class="muted">
+                <li>Siram secukupnya (hindari becek).</li>
+                <li>Cabut gulma agar rimpang berkembang.</li>
+                <li>Tambahkan kompos/pupuk kandang matang bila tanah kurang subur.</li>
+              </ul>
+            </details>
+          </div>
+
+          <details open>
+            <summary>Manfaat</summary>
+            <ul class="muted">
+              <li>Umum digunakan sebagai bumbu, pewarna alami, dan bahan ramuan tradisional.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Kandungan vitamin</summary>
+            <p class="muted">Vitamin pada kunyit umumnya dalam jumlah kecil; selain itu kunyit dikenal karena senyawa kurkuminoid (kurkumin).</p>
+          </details>
+
+          <div class="src">Foto: Wikimedia Commons — <em>Curcuma longa</em> roots.</div>
+        </div>
+      </article>
+
+      <!-- 2) JAHE -->
+      <article class="card plant" id="jahe" data-keywords="jahe zingiber officinale rimpang budidaya perawatan manfaat vitamin c b6 gingerol">
+        <div class="cardTop">
+          <div class="photo">
+            <img alt="Jahe (foto asli)" src="jahe.jpeg">
+          </div>
+          <div>
+            <h4>2) Jahe</h4>
+            <p class="latin"><strong>Nama latin:</strong> <em>Zingiber officinale</em> Roscoe</p>
+            <div class="pillRow">
+              <span class="pill">Rimpang</span>
+              <span class="pill">Senyawa: gingerol</span>
+              <span class="pill">Vitamin: C & B kompleks (umum)</span>
+            </div>
+          </div>
+        </div>
+        <div class="cardBody">
+          <details open>
+            <summary>Penjelasan</summary>
+            <p class="muted">Jahe adalah tanaman rimpang aromatik yang populer untuk minuman hangat dan bumbu masak.</p>
+          </details>
+
+          <div class="twoCol">
+            <details open>
+              <summary>Budidaya</summary>
+              <ul class="muted">
+                <li>Bibit: rimpang segar bertunas.</li>
+                <li>Tanah: gembur, kaya organik, drainase baik.</li>
+                <li>Panen: rimpang dipanen saat cukup tua sesuai kebutuhan (muda/tua).</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Perawatan</summary>
+              <ul class="muted">
+                <li>Jaga kelembapan tanah, jangan tergenang.</li>
+                <li>Penyiangan gulma rutin.</li>
+                <li>Tambah kompos bila pertumbuhan lambat.</li>
+              </ul>
+            </details>
+          </div>
+
+          <details open>
+            <summary>Manfaat</summary>
+            <ul class="muted">
+              <li>Sering dimanfaatkan untuk minuman herbal tradisional dan membantu menghangatkan tubuh.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Kandungan vitamin</summary>
+            <p class="muted">Jahe mengandung vitamin dalam jumlah kecil; dikenal juga karena minyak atsiri dan senyawa gingerol.</p>
+          </details>
+
+          <div class="src">Foto: Wikimedia Commons — Ginger root.</div>
+        </div>
+      </article>
+
+      <!-- 3) KENCUR -->
+      <article class="card plant" id="kencur" data-keywords="kencur kaempferia galanga rimpang budidaya perawatan manfaat vitamin minyak atsiri">
+        <div class="cardTop">
+          <div class="photo">
+            <img alt="Kencur (foto asli)" src="kencur.jpg">
+          </div>
+          <div>
+            <h4>3) Kencur</h4>
+            <p class="latin"><strong>Nama latin:</strong> <em>Kaempferia galanga</em> L.</p>
+            <div class="pillRow">
+              <span class="pill">Rimpang</span>
+              <span class="pill">Aroma khas</span>
+              <span class="pill">Vitamin: C (umum, kecil)</span>
+            </div>
+          </div>
+        </div>
+        <div class="cardBody">
+          <details open>
+            <summary>Penjelasan</summary>
+            <p class="muted">Kencur adalah tanaman rimpang beraroma kuat, sering digunakan pada bumbu dan ramuan tradisional.</p>
+          </details>
+
+          <div class="twoCol">
+            <details open>
+              <summary>Budidaya</summary>
+              <ul class="muted">
+                <li>Bibit: rimpang bertunas.</li>
+                <li>Cocok di tempat agak teduh hingga cukup matahari.</li>
+                <li>Tanah gembur + kompos.</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Perawatan</summary>
+              <ul class="muted">
+                <li>Siram secukupnya.</li>
+                <li>Jaga area bebas gulma.</li>
+                <li>Tambah kompos bila daun terlihat pucat.</li>
+              </ul>
+            </details>
+          </div>
+
+          <details open>
+            <summary>Manfaat</summary>
+            <ul class="muted">
+              <li>Umum dipakai sebagai bumbu dan bahan jamu tradisional.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Kandungan vitamin</summary>
+            <p class="muted">Vitamin pada kencur umumnya tidak dominan; kencur lebih dikenal karena minyak atsiri dan aromanya.</p>
+          </details>
+
+          <div class="src">Foto: Wikimedia Commons — <em>Kaempferia galanga</em> plant.</div>
+        </div>
+      </article>
+
+      <!-- 4) LENGKUAS -->
+      <article class="card plant" id="lengkuas" data-keywords="lengkuas laos alpinia galanga rimpang budidaya perawatan manfaat vitamin">
+        <div class="cardTop">
+          <div class="photo">
+            <img alt="Lengkuas (foto asli)" src="lengkuas.jpeg">
+          </div>
+          <div>
+            <h4>4) Lengkuas (Laos)</h4>
+            <p class="latin"><strong>Nama latin:</strong> <em>Alpinia galanga</em> (L.) Willd.</p>
+            <div class="pillRow">
+              <span class="pill">Rimpang</span>
+              <span class="pill">Aroma bumbu</span>
+              <span class="pill">Vitamin: C (umum, kecil)</span>
+            </div>
+          </div>
+        </div>
+        <div class="cardBody">
+          <details open>
+            <summary>Penjelasan</summary>
+            <p class="muted">Lengkuas adalah tanaman rimpang yang sering dipakai sebagai bumbu pada masakan berkuah dan tumisan.</p>
+          </details>
+
+          <div class="twoCol">
+            <details open>
+              <summary>Budidaya</summary>
+              <ul class="muted">
+                <li>Perbanyakan: rimpang/pecahan rumpun.</li>
+                <li>Tanah gembur, subur, drainase baik.</li>
+                <li>Panen rimpang saat ukuran cukup (sesuai kebutuhan dapur).</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Perawatan</summary>
+              <ul class="muted">
+                <li>Siram secukupnya, hindari genangan.</li>
+                <li>Gulma dibersihkan rutin.</li>
+                <li>Pupuk organik berkala.</li>
+              </ul>
+            </details>
+          </div>
+
+          <details open>
+            <summary>Manfaat</summary>
+            <ul class="muted">
+              <li>Digunakan sebagai bumbu, memberi aroma khas pada masakan.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Kandungan vitamin</summary>
+            <p class="muted">Vitamin pada lengkuas umumnya dalam jumlah kecil; lengkuas dikenal karena komponen aromatik/minyak atsiri.</p>
+          </details>
+
+          <div class="src">Foto: Wikimedia Commons — <em>Alpinia galanga</em>.</div>
+        </div>
+      </article>
+
+      <!-- 5) KUMIS KUCING -->
+      <article class="card plant" id="kumis-kucing" data-keywords="kumis kucing orthosiphon aristatus stamineus tanaman obat budidaya perawatan manfaat vitamin">
+        <div class="cardTop">
+          <div class="photo">
+            <img alt="Kumis kucing (foto asli)" src="kumis kucing.jpeg">
+          </div>
+          <div>
+            <h4>5) Kumis Kucing</h4>
+            <p class="latin"><strong>Nama latin:</strong> <em>Orthosiphon aristatus</em> (syn. <em>O. stamineus</em>)</p>
+            <div class="pillRow">
+              <span class="pill">Daun & bunga</span>
+              <span class="pill">Identik “kumis” panjang</span>
+              <span class="pill">Vitamin: (umum, kecil)</span>
+            </div>
+          </div>
+        </div>
+        <div class="cardBody">
+          <details open>
+            <summary>Penjelasan</summary>
+            <p class="muted">Kumis kucing adalah tanaman hias-obat dengan bunga putih/ungu dan benang sari panjang seperti kumis.</p>
+          </details>
+
+          <div class="twoCol">
+            <details open>
+              <summary>Budidaya</summary>
+              <ul class="muted">
+                <li>Perbanyakan: stek batang lebih mudah.</li>
+                <li>Tanah gembur + kompos; cukup sinar matahari.</li>
+                <li>Pangkas ringan agar rimbun dan cepat bertunas.</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Perawatan</summary>
+              <ul class="muted">
+                <li>Siram teratur (jangan becek).</li>
+                <li>Pangkas daun/batang tua.</li>
+                <li>Cegah hama dengan kebersihan kebun.</li>
+              </ul>
+            </details>
+          </div>
+
+          <details open>
+            <summary>Manfaat</summary>
+            <ul class="muted">
+              <li>Sering dimanfaatkan sebagai tanaman obat tradisional dalam berbagai daerah.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Kandungan vitamin</summary>
+            <p class="muted">Vitamin bukan poin utama; kumis kucing lebih dikenal sebagai tanaman herbal tradisional (daun/bagian atas tanaman).</p>
+          </details>
+
+          <div class="src">Foto: Wikimedia Commons — <em>Orthosiphon aristatus</em>.</div>
+        </div>
+      </article>
+
+      <!-- 7) SEREH -->
+      <article class="card plant" id="sereh" data-keywords="sereh serai cymbopogon citratus budidaya perawatan manfaat vitamin c folat minyak atsiri">
+        <div class="cardTop">
+          <div class="photo">
+            <img alt="Sereh (foto asli)" src="serei.jpeg">
+          </div>
+          <div>
+            <h4>7) Sereh (Serai)</h4>
+            <p class="latin"><strong>Nama latin:</strong> <em>Cymbopogon citratus</em></p>
+            <div class="pillRow">
+              <span class="pill">Aroma sitrus</span>
+              <span class="pill">Minyak atsiri</span>
+              <span class="pill">Vitamin: C & folat (umum)</span>
+            </div>
+          </div>
+        </div>
+        <div class="cardBody">
+          <details open>
+            <summary>Penjelasan</summary>
+            <p class="muted">Sereh adalah tanaman aromatik untuk bumbu masak dan minuman herbal.</p>
+          </details>
+
+          <div class="twoCol">
+            <details open>
+              <summary>Budidaya</summary>
+              <ul class="muted">
+                <li>Perbanyakan: anakan/rumpun.</li>
+                <li>Tanah tidak tergenang, cukup matahari.</li>
+                <li>Panen: ambil batang sesuai kebutuhan, sisakan rumpun.</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Perawatan</summary>
+              <ul class="muted">
+                <li>Siram secukupnya (lebih sering saat kemarau).</li>
+                <li>Rapikan daun tua.</li>
+                <li>Pupuk kompos berkala.</li>
+              </ul>
+            </details>
+          </div>
+
+          <details open>
+            <summary>Manfaat</summary>
+            <ul class="muted">
+              <li>Memberi aroma pada masakan/minuman, sering dipakai pada olahan tradisional.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Kandungan vitamin</summary>
+            <p class="muted">Umumnya dicatat mengandung vitamin C dan folat dalam jumlah tertentu (tergantung porsi & kondisi bahan).</p>
+          </details>
+
+          <div class="src">Foto: Wikimedia Commons — <em>Cymbopogon citratus</em>.</div>
+        </div>
+      </article>
+
+      <!-- 8) KEMANGI -->
+      <article class="card plant" id="kemangi" data-keywords="kemangi ocimum basilicum basil lemon basil budidaya perawatan manfaat vitamin a c k">
+        <div class="cardTop">
+          <div class="photo">
+            <img alt="Kemangi (foto asli)" src="cemangi.jpeg">
+          </div>
+          <div>
+            <h4>8) Kemangi</h4>
+            <p class="latin"><strong>Nama latin:</strong> <em>Ocimum basilicum</em> (kemangi/lemon basil)</p>
+            <div class="pillRow">
+              <span class="pill">Daun aromatik</span>
+              <span class="pill">Vitamin: A, C, K (umum)</span>
+              <span class="pill">Cocok di pot</span>
+            </div>
+          </div>
+        </div>
+        <div class="cardBody">
+          <details open>
+            <summary>Penjelasan</summary>
+            <p class="muted">Kemangi adalah tanaman daun aromatik yang sering dimakan sebagai lalap dan penambah aroma masakan.</p>
+          </details>
+
+          <div class="twoCol">
+            <details open>
+              <summary>Budidaya</summary>
+              <ul class="muted">
+                <li>Perbanyakan: biji atau stek batang.</li>
+                <li>Butuh sinar matahari cukup dan tanah gembur.</li>
+                <li>Panen: petik pucuk/daun agar terus tumbuh rimbun.</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Perawatan</summary>
+              <ul class="muted">
+                <li>Siram rutin (tidak becek).</li>
+                <li>Pangkas bunga bila ingin fokus daun.</li>
+                <li>Pupuk kompos tipis berkala.</li>
+              </ul>
+            </details>
+          </div>
+
+          <details open>
+            <summary>Manfaat</summary>
+            <ul class="muted">
+              <li>Menambah aroma, meningkatkan selera makan, sumber mikronutrien dari daun.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Kandungan vitamin</summary>
+            <p class="muted">Daun kemangi umumnya mengandung vitamin A, C, dan K (umum pada daun hijau), serta antioksidan alami.</p>
+          </details>
+
+          <div class="src">Foto: Wikimedia Commons — <em>Ocimum basilicum</em>.</div>
+        </div>
+      </article>
+
+      <!-- 9) TEMULAWAK -->
+      <article class="card plant" id="temulawak" data-keywords="temulawak curcuma xanthorrhiza rimpang budidaya perawatan manfaat vitamin kurkuminoid xanthorrhizol">
+        <div class="cardTop">
+          <div class="photo">
+            <img alt="Temulawak (foto asli)" src="pandan.jpeg">
+          </div>
+          <div>
+            <h4>9) Temulawak</h4>
+            <p class="latin"><strong>Nama latin:</strong> <em>Curcuma xanthorrhiza</em> Roxb.</p>
+            <div class="pillRow">
+              <span class="pill">Rimpang</span>
+              <span class="pill">Senyawa: kurkuminoid</span>
+              <span class="pill">Vitamin: (umum, kecil)</span>
+            </div>
+          </div>
+        </div>
+        <div class="cardBody">
+          <details open>
+            <summary>Penjelasan</summary>
+            <p class="muted">Temulawak adalah tanaman rimpang yang banyak digunakan dalam ramuan tradisional dan minuman herbal.</p>
+          </details>
+
+          <div class="twoCol">
+            <details open>
+              <summary>Budidaya</summary>
+              <ul class="muted">
+                <li>Bibit: rimpang bertunas.</li>
+                <li>Tanah gembur, kaya kompos, tidak tergenang.</li>
+                <li>Panen saat rimpang membesar dan daun mulai menua.</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Perawatan</summary>
+              <ul class="muted">
+                <li>Siram secukupnya.</li>
+                <li>Penyiangan gulma.</li>
+                <li>Pupuk organik berkala.</li>
+              </ul>
+            </details>
+          </div>
+
+          <details open>
+            <summary>Manfaat</summary>
+            <ul class="muted">
+              <li>Umum digunakan sebagai bahan minuman herbal/ramuan tradisional.</li>
+            </ul>
+          </details>
+
+          <details>
+            <summary>Kandungan vitamin</summary>
+            <p class="muted">Vitamin biasanya bukan komponen utama; temulawak dikenal karena komponen kurkuminoid dan minyak atsiri pada rimpang.</p>
+          </details>
+
+          <div class="src">Foto: Wikimedia Commons — <em>Curcuma xanthorrhiza</em>.</div>
+        </div>
+      </article>
+
+    </section>
+<!-- ✅ Tambahan ARTICLE: taruh di dalam <section class="grid" id="cards"> ... </section>  -->
+
+<!-- 10) PANDAN -->
+<article class="card plant" id="pandan" data-keywords="pandan pandan wangi pandanus amaryllifolius daun aromatik budidaya perawatan manfaat vitamin">
+  <div class="cardTop">
+    <div class="photo">
+      <!-- kalau kamu sudah punya file lokal, boleh ganti jadi: src="pandan.jpeg" -->
+      <img alt="Pandan (foto asli)" src="pandan.jpeg">
+    </div>
+    <div>
+      <h4>10) Pandan</h4>
+      <p class="latin"><strong>Nama latin:</strong> <em>Pandanus amaryllifolius</em> Roxb.</p>
+      <div class="pillRow">
+        <span class="pill">Daun aromatik</span>
+        <span class="pill">Aroma khas</span>
+        <span class="pill">Vitamin: (umum, kecil)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cardBody">
+    <details open>
+      <summary>Penjelasan</summary>
+      <p class="muted">Pandan (pandan wangi) adalah tanaman daun aromatik yang sering dipakai sebagai pewangi alami pada makanan dan minuman.</p>
+    </details>
+
+    <div class="twoCol">
+      <details open>
+        <summary>Budidaya</summary>
+        <ul class="muted">
+          <li>Perbanyakan: pemisahan anakan/rumpun.</li>
+          <li>Media: tanah gembur, agak lembap, kaya bahan organik.</li>
+          <li>Cocok: sinar matahari cukup, tetapi bisa juga di tempat agak teduh.</li>
+        </ul>
+      </details>
+
+      <details open>
+        <summary>Perawatan</summary>
+        <ul class="muted">
+          <li>Siram rutin, terutama saat kemarau.</li>
+          <li>Buang daun tua/kering agar rapi dan sehat.</li>
+          <li>Tambah kompos tipis berkala supaya daun tetap subur.</li>
+        </ul>
+      </details>
+    </div>
+
+    <details open>
+      <summary>Manfaat</summary>
+      <ul class="muted">
+        <li>Memberi aroma wangi pada makanan/minuman (kue, kolak, nasi, dll.).</li>
+        <li>Sering digunakan dalam olahan tradisional sebagai pewangi alami.</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Kandungan vitamin</summary>
+      <p class="muted">Vitamin bukan poin utama; pandan lebih dikenal karena senyawa aromatik pada daunnya.</p>
+    </details>
+
+    <div class="src">Foto: Wikimedia Commons — <em>Pandanus amaryllifolius</em>.</div>
+  </div>
+</article>
+
+<!-- 11) ANDONG MERAH -->
+<article class="card plant" id="andong-merah" data-keywords="andong merah cordyline fruticosa ti plant tanaman hias toga budidaya perawatan manfaat vitamin">
+  <div class="cardTop">
+    <div class="photo">
+      <!-- kalau kamu punya foto lokal, boleh ganti jadi: src="andong-merah.jpeg" -->
+      <img alt="Andong Merah (foto asli)" src="andong merah.jpeg">
+    </div>
+    <div>
+      <h4>11) Andong Merah</h4>
+      <p class="latin"><strong>Nama latin:</strong> <em>Cordyline fruticosa</em> (L.) A.Chev.</p>
+      <div class="pillRow">
+        <span class="pill">Tanaman hias</span>
+        <span class="pill">Daun merah</span>
+        <span class="pill">Mudah diperbanyak</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="cardBody">
+    <details open>
+      <summary>Penjelasan</summary>
+      <p class="muted">Andong merah adalah tanaman hias berdaun merah yang sering juga dimanfaatkan dalam kebun TOGA di beberapa daerah.</p>
+    </details>
+
+    <div class="twoCol">
+      <details open>
+        <summary>Budidaya</summary>
+        <ul class="muted">
+          <li>Perbanyakan: stek batang atau anakan.</li>
+          <li>Media: tanah gembur + kompos, drainase baik.</li>
+          <li>Tempat: sinar matahari cukup agar warna daun kuat.</li>
+        </ul>
+      </details>
+
+      <details open>
+        <summary>Perawatan</summary>
+        <ul class="muted">
+          <li>Siram 1 kali sehari (atau sesuai kondisi tanah).</li>
+          <li>Pangkas daun tua/rusak agar tumbuh rapi.</li>
+          <li>Pupuk kompos berkala untuk menjaga kesuburan.</li>
+        </ul>
+      </details>
+    </div>
+
+    <details open>
+      <summary>Manfaat</summary>
+      <ul class="muted">
+        <li>Mempercantik kebun TOGA sebagai tanaman pembatas/ornamen.</li>
+        <li>Di beberapa daerah digunakan dalam praktik tradisional (pemanfaatan lokal berbeda-beda).</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Kandungan vitamin</summary>
+      <p class="muted">Tidak umum dipakai sebagai sumber vitamin makanan; andong merah lebih dikenal sebagai tanaman hias dan pemanfaatan tradisional tertentu.</p>
+    </details>
+
+    <div class="src">Foto: Wikimedia Commons — <em>Cordyline fruticosa</em>.</div>
+  </div>
+</article>
+
+    <footer>
+      <div><strong>Logo UNCP:</strong> gunakan link saat ini atau ganti dengan logo resmi kampus bila tersedia.</div>
+      <div style="margin-top:6px">
+        <strong>Catatan:</strong> Jika kamu punya foto asli <em>kebun TOGA di desa</em> dan <em>foto tim KKN</em>, kirim ke chat —
+        nanti tinggal saya pasang supaya lebih “keren” dan benar-benar sesuai kegiatanmu.
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+
+    
+    // Pencarian cepat di halaman
+    const input = document.getElementById('q');
+    const plants = [...document.querySelectorAll('.plant')];
+    input.addEventListener('input', () => {
+      const q = (input.value || '').toLowerCase().trim();
+      plants.forEach(card => {
+        const hay = (card.innerText + ' ' + (card.dataset.keywords || '')).toLowerCase();
+        card.style.display = hay.includes(q) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+</html>
